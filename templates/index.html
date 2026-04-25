@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservas RFLVG</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .container {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      padding: 3rem;
+      max-width: 500px;
+      width: 100%;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    .subtitle {
+      font-size: 0.8rem;
+      color: #666;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid #333;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 0.5rem;
+    }
+    input, select {
+      width: 100%;
+      background: #0f0f0f;
+      border: 1px solid #333;
+      color: #fff;
+      padding: 0.9rem 1rem;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.3s;
+      font-family: inherit;
+    }
+    input:focus, select:focus { border-color: #c17a56; }
+    select option { background: #1a1a1a; }
+    button {
+      width: 100%;
+      background: #c17a56;
+      color: #fff;
+      border: none;
+      padding: 1rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-family: inherit;
+      margin-top: 0.5rem;
+    }
+    button:hover { background: #a66545; }
+    .mensaje {
+      background: #1a2e1a;
+      border: 1px solid #2d5a2d;
+      color: #6fcf6f;
+      padding: 1rem;
+      font-size: 0.85rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .admin-link {
+      display: block;
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #444;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .admin-link:hover { color: #c17a56; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Reservas</h1>
+    <p class="subtitle">RFLVG · Sistema de turnos</p>
+
+    {% if mensaje %}
+      <div class="mensaje">✓ {{ mensaje }}</div>
+    {% endif %}
+
+    <form method="POST">
+      <div class="form-group">
+        <label>Nombre completo</label>
+        <input type="text" name="nombre" required placeholder="Tu nombre">
+      </div>
+      <div class="form-group">
+        <label>Teléfono</label>
+        <input type="tel" name="telefono" required placeholder="+595 9XX XXX XXX">
+      </div>
+      <div class="form-group">
+        <label>Servicio</label>
+        <select name="servicio" required>
+          <option value="">— Seleccioná un servicio —</option>
+          <option value="Consulta general">Consulta general</option>
+          <option value="Sesión individual">Sesión individual</option>
+          <option value="Reunión de negocios">Reunión de negocios</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Fecha</label>
+        <input type="date" name="fecha" required>
+      </div>
+      <div class="form-group">
+        <label>Hora</label>
+        <input type="time" name="hora" required>
+      </div>
+      <button type="submit">Confirmar reserva</button>
+    </form>
+
+    <a href="/admin" class="admin-link">Panel de administración →</a>
+  </div>
+</body>
+</html>
