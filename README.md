@@ -22,14 +22,6 @@ Este es un sistema de gestión de turnos y reservas desarrollado con **Python** 
    git clone [https://github.com/tu-usuario/nombre-del-repo.git](https://github.com/tu-usuario/nombre-del-repo.git)
    cd nombre-del-repo
 
-## Estructura del sistema
-
-   ├── app.py              
-├── templates/          
-│   ├── index.html      
-│   └── admin.html      
-├── .gitignore          
-└── README.md     
 
 ## Autor
 
